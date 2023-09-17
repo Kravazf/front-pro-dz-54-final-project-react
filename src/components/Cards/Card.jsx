@@ -1,63 +1,73 @@
-import React, { useState } from 'react';
+import { Component } from 'react';
 import { CardContent, Typography } from '@mui/material';
 import ModalWindow from '../Modal/ModalWindow';
 import { Buttons, CardAction, StyledCard, StyledCardMedia } from './styled';
 
-export default function CardItem({ quizCardContent }) {
-  const [isShowModal, setShowModal] = useState(false);
+class CardItem extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isShowModal: false,
+    };
+  }
 
-
-
-  const handleShowModal = () => {
-    setShowModal(true);
+  handleShowModal = () => {
+    this.setState({ isShowModal: true });
   };
 
-  const handleCloseModal = () => {
-    setShowModal(false);
+  handleCloseModal = () => {
+    this.setState({ isShowModal: false });
   };
 
-  const handleStartQuiz = () => {
+  handleStartQuiz = () => {
     window.alert('Quiz is started');
   };
 
-  return (
-    <>
-      <StyledCard>
-        <StyledCardMedia
-          component="img"
-          alt={quizCardContent.name}
-          src={quizCardContent.image}
-        />
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
-            {quizCardContent.name}
-          </Typography>
-          <Typography variant="body2" color="text.secondary">
-            {quizCardContent.description.slice(0, 100)}
-          </Typography>
-        </CardContent>
-        <CardAction>
-          <Buttons size="small" onClick={handleStartQuiz}>
-            Start quiz
-          </Buttons>
-          <Buttons size="small" onClick={handleShowModal}>
-            Show More
-          </Buttons>
-        </CardAction>
-      </StyledCard>
-      {isShowModal && (
-        <ModalWindow
-          open={isShowModal}
-          onClose={handleCloseModal}
-          title={quizCardContent.name}
-          image={quizCardContent.image}
-          description={quizCardContent.description}
-        >
-          <Typography gutterBottom>
-            {quizCardContent.description}
-          </Typography>
-        </ModalWindow>
-      )}
-    </>
-  );
+  render() {
+    const { quizCardContent } = this.props;
+    const { isShowModal } = this.state;
+
+    return (
+      <>
+        <StyledCard>
+          <StyledCardMedia
+            component="img"
+            alt={quizCardContent.name}
+            src={quizCardContent.image}
+          />
+          <CardContent>
+            <Typography gutterBottom variant="h5" component="div">
+              {quizCardContent.name}
+            </Typography>
+            <Typography variant="body2" color="text.secondary">
+              {quizCardContent.description.slice(0, 100)}
+            </Typography>
+          </CardContent>
+          <CardAction>
+            <Buttons size="small" onClick={this.handleStartQuiz}>
+              Start quiz
+            </Buttons>
+            <Buttons size="small" onClick={this.handleShowModal}>
+              Show More
+            </Buttons>
+          </CardAction>
+        </StyledCard>
+        {isShowModal && (
+          <ModalWindow
+            open={isShowModal}
+            onClose={this.handleCloseModal}
+            title={quizCardContent.name}
+            image={quizCardContent.image}
+            description={quizCardContent.description}
+          >
+            <Typography gutterBottom>
+              {quizCardContent.description}
+            </Typography>
+          </ModalWindow>
+        )}
+      </>
+    );
+  }
 }
+
+export default CardItem;
