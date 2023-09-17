@@ -1,7 +1,8 @@
+/* eslint-disable no-console */
 import React, { useCallback, useEffect, useState } from 'react';
+import { Grid } from '@mui/material';
 import CardItem from '../../components/Cards/Card';
 import { quizCardContent } from '../../api/quiz-card-content/quiz-card-content';
-import { Grid } from '@mui/material';
 
 export default function QuizTests() {
   const [quizCardContentList, setQuizCardContentList] = useState([]);

@@ -1,17 +1,23 @@
 import React from 'react';
-import './styled.js';
-import { FooterGrid, HeaderGrid, Item, LogoText, MainGrid, MainWrapp, SideBarGrid 
-} from './styled.js';
+import {
+  FooterGrid,
+  HeaderGrid,
+  Item,
+  LogoText,
+  MainGrid,
+  MainWrapp,
+  SideBarGrid,
+} from './styled';
 import { QuizTests } from './pages/QuizTests';
-import Footer from './components/Footer/Footer.jsx';
+import Footer from './components/Footer/Footer';
 
 function App() {
   return (
     <MainWrapp container>
       <HeaderGrid item lg={12} md={12} sm={12} xs={12}>
         <LogoText
-          variant="h1"
-          component="h2"
+          variant='h1'
+          component='h2'
           style={{
             textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)',
           }}
