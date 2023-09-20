@@ -7,10 +7,10 @@ const quizCardContent = {
       throw new Error(err);
     }),
   post: (params) => axios.post('/quiz-card-content', params)
-  .then(({ data }) => data)
-  .catch((err) => {
-    throw new Error(err);
-  })
+    .then(({ data }) => data)
+    .catch((err) => {
+      throw new Error(err);
+    }),
 };
 
 export { quizCardContent };

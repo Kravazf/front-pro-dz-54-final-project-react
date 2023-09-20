@@ -9,7 +9,13 @@ import {
   StyledCardMedia,
 } from './styled';
 
-export default function CardItem({ quizCardContent }) {
+export default function CardItem({
+  name,
+  img,
+  title,
+  description,
+  handleNavigate,
+}) {
   const [isShowModal, setShowModal] = useState(false);
 
   const handleShowModal = () => {
@@ -20,28 +26,24 @@ export default function CardItem({ quizCardContent }) {
     setShowModal(false);
   };
 
-  const handleStartQuiz = () => {
-    window.alert('Quiz is started');
-  };
-
   return (
     <>
       <StyledCard>
         <StyledCardMedia
           component='img'
-          alt={quizCardContent.name}
-          src={quizCardContent.image}
+          alt={name}
+          src={img}
         />
         <CardContent>
           <Typography gutterBottom variant='h5' component='div'>
-            {quizCardContent.name}
+            {name}
           </Typography>
           <Typography variant='body2' color='text.secondary'>
-            {quizCardContent.description.slice(0, 100)}
+          {typeof title === 'string' ? title.slice(0, 100) : ''}
           </Typography>
         </CardContent>
         <CardAction>
-          <Buttons size='small' onClick={handleStartQuiz}>
+          <Buttons size='small' onClick={() => handleNavigate(name)}>
             Start quiz
           </Buttons>
           <Buttons size='small' onClick={handleShowModal}>
@@ -53,12 +55,12 @@ export default function CardItem({ quizCardContent }) {
         <ModalWindow
           open={isShowModal}
           onClose={handleCloseModal}
-          title={quizCardContent.name}
-          image={quizCardContent.image}
-          description={quizCardContent.description}
+          title={title}
+          image={img}
+          description={description}
         >
           <Typography gutterBottom>
-            {quizCardContent.description}
+            {description}
           </Typography>
         </ModalWindow>
       )}
