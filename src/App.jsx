@@ -9,7 +9,9 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path='/*' element={<NotFound />} />
-        <Route path='/' element={<h1> Hello!!!</h1>} />
+        <Route element={<Template />}>
+          <Route path='/' element={<QuizTestRoutes />} />
+        </Route>
         <Route element={<Template />}>
           <Route path='/MinistryOfSmartPlay/*' element={<QuizTestRoutes />} />
         </Route>

@@ -5,7 +5,7 @@ export default function NotFound() {
     <div style={{
       display: 'flex',
       flexDirection: 'column',
-      width: '100vw',
+      width: '100%',
       height: '100vh',
       backgroundColor: 'red',
       textAlign: 'center',
