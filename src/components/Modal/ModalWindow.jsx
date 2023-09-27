@@ -13,6 +13,7 @@ export default function ModalWindow({
   title,
   image,
   description,
+  timeEstimate = 30,
 }) {
   const handleClose = () => {
     onClose();
@@ -44,6 +45,7 @@ export default function ModalWindow({
       <DialogContent>
         <img src={image} alt={title} />
         <p>{description}</p>
+        <p>TIME ESTIMATE: {timeEstimate} MINUTES</p>
       </DialogContent>
       <DialogAction>
         <ButtonModal onClick={handleStartQuiz}>
