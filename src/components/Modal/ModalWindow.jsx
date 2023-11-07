@@ -8,12 +8,14 @@ import CloseIcon from '@mui/icons-material/Close';
 import { ButtonModal, DialogAction } from './styled';
 
 export default function ModalWindow({
+  name,
   open,
   onClose,
   title,
   image,
   description,
   timeEstimate = 30,
+  handleNavigate,
 }) {
   const handleClose = () => {
     onClose();
@@ -21,9 +23,7 @@ export default function ModalWindow({
 
   const handleStartQuiz = () => {
     handleClose();
-    setTimeout(() => {
-      window.alert('Quiz is started');
-    }, 50);
+    handleNavigate(name);
   };
 
   return (

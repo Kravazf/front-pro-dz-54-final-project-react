@@ -29,17 +29,17 @@ function Template() {
           <NavBar />
         </HeaderWrap>
       </HeaderGrid>
-      <SideBarGrid item lg={1} md={1} sm={2} xs={12}>
+      <SideBarGrid item lg={2} md={2} sm={2} xs={12}>
         <NavListSideBar />
       </SideBarGrid>
-      <MainGrid item lg={9} md={9} sm={8} xs={12}>
+      <MainGrid item lg={10} md={10} sm={10} xs={12}>
         <Item>
           <Outlet />
         </Item>
       </MainGrid>
-      <SideBarGrid item lg={2} md={2} sm={2} xs={12}>
+      {/* <SideBarGrid item lg={2} md={2} sm={2} xs={12}>
         <Item>SideBarAdverts</Item>
-      </SideBarGrid>
+      </SideBarGrid> */}
       <FooterGrid item lg={12} md={12} sm={12} xs={12}>
         <Footer />
       </FooterGrid>

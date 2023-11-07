@@ -58,6 +58,8 @@ export default function CardItem({
           title={title}
           image={img}
           description={description}
+          name={name} // Передаємо name в ModalWindow
+          handleNavigate={handleNavigate} // Передаємо handleNavigate в ModalWindow
         >
           <Typography gutterBottom>
             {description}

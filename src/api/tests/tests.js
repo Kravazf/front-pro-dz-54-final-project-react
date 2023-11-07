@@ -1,6 +1,6 @@
-import axios from '../service';
+import axios from '../serviceTests';
 
-const quizCardJs = {
+const quizCardTests = {
   get: (id) => axios.get(`/${id}`)
     .then(({ data }) => data)
     .catch((err) => {
@@ -8,4 +8,4 @@ const quizCardJs = {
     }),
 };
 
-export { quizCardJs };
+export { quizCardTests };

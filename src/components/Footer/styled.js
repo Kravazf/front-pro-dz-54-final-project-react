@@ -2,9 +2,21 @@ import styled from 'styled-components';
 
 export const FooterWrapp = styled('div')(() => ({
   display: 'flex',
+  justifyContent: 'space-around',
   height: '100%',
   backgroundColor: '#252839',
   alignItems: 'center',
+
+  a: {
+    color: 'rgba(255, 255, 255, 0.5)',
+    filter: 'drop-shadow(0 0 25px #00dc82)',
+    transition: 'color 0.3s, filter 0.3s',
+  },
+
+  'a:hover': {
+    color: '#00dc82',
+    filter: 'drop-shadow(0 0 25px #00dc82)',
+  },
 }));
 
 export const FooterNavigation = styled('div')(() => ({

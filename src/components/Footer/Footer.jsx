@@ -6,9 +6,11 @@ function Footer() {
   return (
     <FooterWrapp>
       <Typography variant='body1' color='white'>
-        <a style={{ color: '#fff' }}
-        href='/MinistryOfSmartPlay'
-        data-text='&copy; 2023 Ministry of Smart Play'>&copy; 2023 Ministry of Smart Play</a>
+          <a
+            href='/MinistryOfSmartPlay'
+            data-text='&nbsp; @2023 Ministry of Smart Play'>
+            &nbsp; @ 2023 Ministry of Smart Play&nbsp;
+          </a>
       </Typography>
       <FooterNavigation>
         <ul>
