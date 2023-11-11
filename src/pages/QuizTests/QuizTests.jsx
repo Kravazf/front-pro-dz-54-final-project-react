@@ -1,20 +1,27 @@
 /* eslint-disable no-console */
-import React, { useCallback, useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import React, {
+  useCallback,
+  useEffect,
+  useMemo,
+  useState,
+} from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 import { Grid } from '@mui/material';
 import CardItem from '../../components/Cards/Card';
-import { quizCardContent } from '../../api/quiz-card-content/quiz-card-content';
+import thunks from '../../store/services/tests/thunks';
 
 export default function QuizTests() {
-  const { testsReduser } = useSelector((state) => state);
+  const { tests, filteredTests, filter } = useSelector((state) => state.testsReduser);
+  const dispatch = useDispatch();
   const navigate = useNavigate();
-  const [quizCardContentList, setQuizCardContentList] = useState([]);
+  // const [quizCardContentList, setQuizCardContentList] = useState([]);
+  const { id } = useParams();
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
   const [isModalOpen, setModalOpen] = useState(false);
 
-  console.log(testsReduser);
+  const quizCardContentList = useMemo(() => (filter ? filteredTests : tests), [filter, filteredTests, tests]);
 
   const openModal = () => {
     setModalOpen(true);
@@ -28,15 +35,14 @@ export default function QuizTests() {
     setLoading(true);
 
     try {
-      const response = await quizCardContent.get();
-      setQuizCardContentList(response);
+      await dispatch(thunks.fetchTests(id));
     } catch (err) {
       console.error(err);
       setError(err);
     } finally {
       setLoading(false);
     }
-  }, [setQuizCardContentList, setLoading, setError]);
+  }, [id, dispatch, setLoading, setError]);
 
   useEffect(() => {
     fetchQuizCardContentList();
