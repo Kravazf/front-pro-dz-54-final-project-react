@@ -1,16 +1,21 @@
 /* eslint-disable no-console */
 import React, { useCallback, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import { Grid } from '@mui/material';
 import CardItem from '../../components/Cards/Card';
 import { quizCardContent } from '../../api/quiz-card-content/quiz-card-content';
 
 export default function QuizTests() {
+  const { testsReduser } = useSelector((state) => state);
   const navigate = useNavigate();
   const [quizCardContentList, setQuizCardContentList] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
   const [isModalOpen, setModalOpen] = useState(false);
+
+  console.log(testsReduser);
+
   const openModal = () => {
     setModalOpen(true);
   };

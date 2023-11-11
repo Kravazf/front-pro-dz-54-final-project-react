@@ -1,27 +1,31 @@
 /* eslint-disable no-console */
-import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import TextField from '@mui/material/TextField';
 import IconButton from '@mui/material/IconButton';
 import SearchIcon from '@mui/icons-material/Search';
 import { SearchBar } from './styled';
+import actions from '../../store/services/tests/actions';
 
 function NavBar() {
-  const [searchTerm, setSearchTerm] = useState('');
+  const { filter } = useSelector((state) => state.testsReduser);
+  const dispatch = useDispatch();
 
-  const handleSearch = () => {
+  const handleChangeFilter = (e) => {
+    console.log(e.target.value);
+    dispatch(actions.filterAction(e.target.value));
     // Додайте обробник пошуку тут, щоб обробити `searchTerm`
-    console.log('Пошук за терміном:', searchTerm);
   };
 
   return (
     <SearchBar>
       <TextField
-        label="Пошук"
+        placeholder='Filter tests'
+        label="Search"
         variant="outlined"
-        value={searchTerm}
-        onChange={(e) => setSearchTerm(e.target.value)}
+        value={filter}
+        onChange={handleChangeFilter}
       />
-      <IconButton onClick={handleSearch}>
+      <IconButton onClick={handleChangeFilter}>
         <SearchIcon />
       </IconButton>
     </SearchBar>
