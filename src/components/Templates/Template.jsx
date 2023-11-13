@@ -37,9 +37,6 @@ function Template() {
           <Outlet />
         </Item>
       </MainGrid>
-      {/* <SideBarGrid item lg={2} md={2} sm={2} xs={12}>
-        <Item>SideBarAdverts</Item>
-      </SideBarGrid> */}
       <FooterGrid item lg={12} md={12} sm={12} xs={12}>
         <Footer />
       </FooterGrid>
