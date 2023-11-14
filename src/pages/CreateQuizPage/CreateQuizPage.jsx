@@ -1,54 +1,55 @@
-import { TextField } from '@mui/material';
-import useInputValidation from '../../hooks/useInputValidation';
+/* eslint-disable no-console */
+import { Button } from '@mui/material';
+import { useForm } from 'react-hook-form';
+import { useDispatch } from 'react-redux';
+import { useParams } from 'react-router-dom';
+import InputText from '../../components/Forms/InputText';
+import { testRules } from '../../constans';
+import { quizCardContent } from '../../api/quiz-card-content/quiz-card-content';
+import thunks from '../../store/services/tests/thunks';
 
 const CreateQuizPage = () => {
-  const [
-    test,
-    setTest,
-    testIsValid,
-  ] = useInputValidation('');
-  const [
-    question,
-    setquestion,
-    questionIsValid,
-  ] = useInputValidation('');
+  const dispatch = useDispatch();
+  const { id } = useParams();
+  const { control, handleSubmit, getValues } = useForm();
+  const onSubmit = () => {
+    console.log(getValues());
 
-  const handleChageInput = (e) => {
-    if (e.target.name === 'Test') setTest(e.target.value);
-    if (e.target.name === 'question') setquestion(e.target.value);
+    const quizData = getValues();
+    quizCardContent.post(quizData)
+      .then(() => {
+        console.log(`Відправленні данні: ${JSON.stringify(getValues())}`);
+        return dispatch(thunks.fetchTests(id)); // Оновлюємо список тестів у Redux Store
+      })
+      .catch((error) => {
+        console.error('Помилка при створенні тесту:', error);
+      });
   };
 
   return (
     <>
-      <TextField
+      <InputText
         fullWidth
-        label='Test'
-        defaultValue='Node.js'
-        onChange={handleChageInput}
-        margin='normal'
-        name='Test'
-        value={test}
-        error={!!testIsValid(2, 15)}
-        helperText={testIsValid(2, 15)}
+        control={control}
+        name='name'
+        rules={testRules.quizName}
+        label='Quiz name'
       />
-      <TextField
+      <InputText
         fullWidth
-        label='question'
-        defaultValue='Write your question'
-        onChange={handleChageInput}
-        margin='normal'
-        name='question'
-        value={question}
-        error={!!questionIsValid(5, 30)}
-        helperText={questionIsValid(5, 30)}
+        control={control}
+        name='description'
+        rules={testRules.description}
+        label='Description'
       />
-      <TextField
+      <InputText
         fullWidth
-        label='question'
-        defaultValue='Write your question'
-        onChange={handleChageInput}
-        margin='normal'
+        control={control}
+        name='image'
+        rules={testRules.imageUrl}
+        label='Image URL'
       />
+      <Button onClick={handleSubmit(onSubmit)}>Create Quiz Test</Button>
     </>
   );
 };

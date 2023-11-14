@@ -6,6 +6,3 @@ const filterAction = createAction(`${modulName}/filterAction`, (payload) => ({ p
 export default {
   filterAction,
 };
-
-// export const TESTS_FILTER = 'TESTS_FILTER';
-// export const filterAction = (payload) => ({ type: TESTS_FILTER, payload });

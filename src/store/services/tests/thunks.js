@@ -5,6 +5,7 @@ import { quizCardContent } from '../../../api/quiz-card-content/quiz-card-conten
 const fetchTests = createAsyncThunk(`${modulName}/fetchTests`, async (id) => {
   try {
     const response = await quizCardContent.get(id);
+    console.log(response);
     return response;
   } catch (error) {
     throw new Error(error.message);

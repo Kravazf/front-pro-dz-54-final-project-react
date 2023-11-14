@@ -12,8 +12,8 @@ export default function ListDividers() {
         <ListItemText primary="Homepage" />
       </ListItemButton>
       <Divider />
-      <ListItemButton divider component={Link} to="/quiz/create">
-        <ListItemText primary="Add New (Quiz)" />
+      <ListItemButton divider component={Link} to="/MinistryOfSmartPlay/create/">
+        <ListItemText primary="Add New Quiz" />
       </ListItemButton>
       <ListItemButton component={Link} to="/quiz/favorite">
         <ListItemText primary="Favorite" />

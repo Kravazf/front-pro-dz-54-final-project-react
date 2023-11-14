@@ -2,7 +2,6 @@ import { createSlice } from '@reduxjs/toolkit';
 import { modulName } from './constans';
 import actions from './actions';
 import thunks from './thunks';
-// import { TESTS_FILTER } from './actions';
 
 const initialState = {
   tests: [],
@@ -32,15 +31,3 @@ export const testsReduser = createSlice({
 });
 
 export default testsReduser.reducer;
-
-// eslint-disable-next-line default-param-last
-// function testsReduser(state = initialState, { type, payload }) {
-//   switch (type) {
-//     case TESTS_FILTER:
-//       return { ...state, filter: payload };
-//     default:
-//       return state;
-//   }
-// }
-
-// export default testsReduser;

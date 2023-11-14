@@ -38,7 +38,15 @@ export default function CardItem({
           <Typography gutterBottom variant='h5' component='div'>
             {name}
           </Typography>
-          <Typography variant='body2' color='text.secondary'>
+          <Typography
+            variant='body2'
+            color='text.secondary'
+            style={{
+              whiteSpace: 'nowrap',
+              textOverflow: 'ellipsis',
+              overflow: 'hidden',
+            }}
+          >
           {typeof title === 'string' ? title.slice(0, 100) : ''}
           </Typography>
         </CardContent>

@@ -15,7 +15,6 @@ export default function QuizTests() {
   const { tests, filteredTests, filter } = useSelector((state) => state.testsReduser);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  // const [quizCardContentList, setQuizCardContentList] = useState([]);
   const { id } = useParams();
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
