@@ -12,4 +12,14 @@ const fetchTests = createAsyncThunk(`${modulName}/fetchTests`, async (id) => {
   }
 });
 
-export default { fetchTests };
+const deleteTest = createAsyncThunk(`${modulName}/deleteTest`, async (testId, { rejectWithValue }) => {
+  try {
+    await quizCardContent.delete(testId);
+    console.log(testId);
+    return testId;
+  } catch (error) {
+    return rejectWithValue(error.message);
+  }
+});
+
+export default { fetchTests, deleteTest };

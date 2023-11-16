@@ -42,7 +42,7 @@ export const SideBarGrid = styled(Grid)(() => ({
 }));
 
 export const MainGrid = styled(Grid)(() => ({
-  padding: '15px',
+  padding: '15px 30px 15px 15px ',
   border: '1px solid rgba(4, 170, 109, 0.2)',
 }));
 

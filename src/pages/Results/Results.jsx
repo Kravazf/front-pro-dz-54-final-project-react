@@ -9,7 +9,6 @@ import { ButtonMyProgect } from '../../components/ButtonMyProgect/styled';
 import { ResultWrap } from './styled';
 import ConfettiBackground from '../../components/ConfettiBackground/ConfettiBackground';
 // eslint-disable-next-line import/named
-// import { Confetti } from '../../components/Confetti/Confetti';
 
 function formatTime(seconds) {
   const minutes = Math.floor(seconds / 60);

@@ -1,23 +1,35 @@
 import * as React from 'react';
 import { Link } from 'react-router-dom';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemText from '@mui/material/ListItemText';
-import Divider from '@mui/material/Divider';
-import { NavList } from './styled';
+import { NavList, NavListWrapp } from './styled';
 
 export default function ListDividers() {
   return (
-    <NavList component="nav" aria-label="mailbox folders">
-      <ListItemButton component={Link} to="/MinistryOfSmartPlay">
-        <ListItemText primary="Homepage" />
-      </ListItemButton>
-      <Divider />
-      <ListItemButton divider component={Link} to="/MinistryOfSmartPlay/create/">
-        <ListItemText primary="Add New Quiz" />
-      </ListItemButton>
-      <ListItemButton component={Link} to="/quiz/favorite">
-        <ListItemText primary="Favorite" />
-      </ListItemButton>
-    </NavList>
+    <NavListWrapp>
+      <NavList component="nav" aria-label="mailbox folders">
+        <ul>
+          <li>
+            <Link
+              to='/MinistryOfSmartPlay'
+              data-text='&nbsp;Home'>
+              &nbsp;Home&nbsp;
+            </Link>
+          </li>
+          <li>
+            <Link
+              to='/MinistryOfSmartPlay/create'
+              data-text='&nbsp;Add quiz'>
+              &nbsp;Add quiz&nbsp;
+            </Link>
+          </li>
+          <li>
+            <Link
+              to='/MinistryOfSmartPlay/favorite'
+              data-text='&nbsp;Favorite'>
+              &nbsp;Favorite&nbsp;
+            </Link>
+          </li>
+        </ul>
+      </NavList>
+    </NavListWrapp>
   );
 }

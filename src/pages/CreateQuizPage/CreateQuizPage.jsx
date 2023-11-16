@@ -1,15 +1,16 @@
 /* eslint-disable no-console */
-import { Button } from '@mui/material';
 import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import InputText from '../../components/Forms/InputText';
 import { testRules } from '../../constans';
 import { quizCardContent } from '../../api/quiz-card-content/quiz-card-content';
 import thunks from '../../store/services/tests/thunks';
+import { ButtonCreateQuiz, FormWrap } from './styled';
 
 const CreateQuizPage = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const { id } = useParams();
   const { control, handleSubmit, getValues } = useForm();
   const onSubmit = () => {
@@ -18,7 +19,7 @@ const CreateQuizPage = () => {
     const quizData = getValues();
     quizCardContent.post(quizData)
       .then(() => {
-        console.log(`Відправленні данні: ${JSON.stringify(getValues())}`);
+        navigate('/MinistryOfSmartPlay');
         return dispatch(thunks.fetchTests(id)); // Оновлюємо список тестів у Redux Store
       })
       .catch((error) => {
@@ -27,7 +28,7 @@ const CreateQuizPage = () => {
   };
 
   return (
-    <>
+    <FormWrap>
       <InputText
         fullWidth
         control={control}
@@ -49,8 +50,17 @@ const CreateQuizPage = () => {
         rules={testRules.imageUrl}
         label='Image URL'
       />
-      <Button onClick={handleSubmit(onSubmit)}>Create Quiz Test</Button>
-    </>
+      <InputText
+        fullWidth
+        control={control}
+        name='AutorName'
+        rules={testRules.quizName}
+        label='Autor Name'
+      />
+      <ButtonCreateQuiz onClick={handleSubmit(onSubmit)}>
+        <p>Create Quiz</p>
+      </ButtonCreateQuiz>
+    </FormWrap>
   );
 };
 

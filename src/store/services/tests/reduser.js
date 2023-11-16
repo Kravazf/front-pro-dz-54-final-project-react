@@ -27,6 +27,10 @@ export const testsReduser = createSlice({
       // eslint-disable-next-line no-param-reassign
       state.tests = payload;
     });
+    builder.addCase(thunks.deleteTest.fulfilled, (state, { payload: testId }) => {
+      // eslint-disable-next-line no-param-reassign
+      state.tests = state.tests.filter((test) => test.id !== testId);
+    });
   },
 });
 

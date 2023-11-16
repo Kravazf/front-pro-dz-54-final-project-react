@@ -1,6 +1,8 @@
 /* eslint-disable no-alert */
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { CardContent, Typography } from '@mui/material';
+import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import ModalWindow from '../Modal/ModalWindow';
 import {
   Buttons,
@@ -8,8 +10,10 @@ import {
   StyledCard,
   StyledCardMedia,
 } from './styled';
+import thunks from '../../store/services/tests/thunks';
 
 export default function CardItem({
+  test,
   name,
   img,
   title,
@@ -17,6 +21,13 @@ export default function CardItem({
   handleNavigate,
 }) {
   const [isShowModal, setShowModal] = useState(false);
+  const dispatch = useDispatch();
+  const showDeleteButton = test && test.AutorName;
+  const handleDelete = () => {
+    if (test && test.id) {
+      dispatch(thunks.deleteTest(test.id));
+    }
+  };
 
   const handleShowModal = () => {
     setShowModal(true);
@@ -57,6 +68,19 @@ export default function CardItem({
           <Buttons size='small' onClick={handleShowModal}>
             Show More
           </Buttons>
+          {showDeleteButton && (
+          <DeleteForeverIcon
+          size='small'
+          onClick={handleDelete}
+          style={{
+            position: 'absolute',
+            top: '210px',
+            right: '5px',
+            color: 'red',
+          }}
+          >
+          </DeleteForeverIcon>
+          )}
         </CardAction>
       </StyledCard>
       {isShowModal && (

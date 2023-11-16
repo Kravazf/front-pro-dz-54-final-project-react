@@ -15,7 +15,7 @@ export const testRules = {
   },
   description: {
     required: { value: true, message: ruleText.required },
-    minLength: { value: 10, message: ruleText.minLength(100) },
+    minLength: { value: 20, message: ruleText.minLength(20) },
     maxLength: { value: 300, message: ruleText.maxLength(300) },
   },
   imageUrl: {

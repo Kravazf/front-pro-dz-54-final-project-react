@@ -61,6 +61,7 @@ export default function QuizTests() {
       {quizCardContentList.map((quizCardContent) => (
         <Grid item xs={12} sm={6} md={4} lg={3} key={quizCardContent.id}>
           <CardItem
+            test={quizCardContent}
             name={quizCardContent.name}
             img={quizCardContent.image}
             title={quizCardContent.description}

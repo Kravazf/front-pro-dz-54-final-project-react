@@ -11,6 +11,11 @@ const quizCardContent = {
     .catch((err) => {
       throw new Error(err);
     }),
+  delete: (id) => axios.delete(`/quiz-card-content/${id}`)
+    .then(({ data }) => data)
+    .catch((err) => {
+      throw new Error(err);
+    }),
 };
 
 export { quizCardContent };

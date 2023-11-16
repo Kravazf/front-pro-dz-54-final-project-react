@@ -5,7 +5,12 @@ import DialogTitle from '@mui/material/DialogTitle';
 import DialogContent from '@mui/material/DialogContent';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
-import { ButtonModal, DialogAction } from './styled';
+import {
+  ButtonModal,
+  DialogAction,
+  StyledBorderModalWindow,
+  StyledDialogTitle,
+} from './styled';
 
 export default function ModalWindow({
   name,
@@ -14,7 +19,7 @@ export default function ModalWindow({
   title,
   image,
   description,
-  timeEstimate = 30,
+  timeEstimate = 10,
   handleNavigate,
 }) {
   const handleClose = () => {
@@ -28,30 +33,41 @@ export default function ModalWindow({
 
   return (
     <Dialog open={open} onClose={handleClose}>
-      <DialogTitle>
-        {title}
-        <IconButton
-          aria-label='close'
-          onClick={handleClose}
-          sx={{
-            position: 'absolute',
-            right: 8,
-            top: 8,
-          }}
-        >
-          <CloseIcon />
-        </IconButton>
-      </DialogTitle>
-      <DialogContent>
-        <img src={image} alt={title} />
-        <p>{description}</p>
-        <p>TIME ESTIMATE: {timeEstimate} MINUTES</p>
-      </DialogContent>
-      <DialogAction>
-        <ButtonModal onClick={handleStartQuiz}>
-          Start Quiz
-        </ButtonModal>
-      </DialogAction>
+      <StyledBorderModalWindow>
+        <StyledDialogTitle>
+          <DialogTitle>
+            {title}
+            <IconButton
+              aria-label='close'
+              onClick={handleClose}
+              sx={{
+                position: 'absolute',
+                right: 8,
+                top: 8,
+              }}
+            >
+              <CloseIcon />
+            </IconButton>
+          </DialogTitle>
+          <DialogContent>
+            <img
+            src={image}
+            alt={title}
+            style={{
+              maxHeight: '400px',
+              width: '90%',
+            }}
+            />
+            <p>{description}</p>
+            <p>TIME ESTIMATE: {timeEstimate} MINUTES</p>
+          </DialogContent>
+          <DialogAction>
+            <ButtonModal onClick={handleStartQuiz}>
+              Start Quiz
+            </ButtonModal>
+          </DialogAction>
+        </StyledDialogTitle>
+      </StyledBorderModalWindow>
     </Dialog>
   );
 }
