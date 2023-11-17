@@ -6,3 +6,9 @@ export const HeaderWrap = styled('div')(() => ({
   height: '100%',
   alignItems: 'center',
 }));
+
+export const StyledMainGrid = styled('div')(() => ({
+  minHeight: '75vh',
+  alignItems: 'center',
+  justifyContent: 'center',
+}));

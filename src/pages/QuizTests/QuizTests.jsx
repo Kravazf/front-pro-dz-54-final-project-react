@@ -15,7 +15,6 @@ export default function QuizTests() {
   const { tests, filteredTests, filter } = useSelector((state) => state.testsReduser);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  // const [quizCardContentList, setQuizCardContentList] = useState([]);
   const { id } = useParams();
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
@@ -59,19 +58,24 @@ export default function QuizTests() {
 
   return (
     <Grid container spacing={2}>
-      {quizCardContentList.map((quizCardContent) => (
-        <Grid item xs={12} sm={6} md={4} lg={3} key={quizCardContent.id}>
-          <CardItem
-            name={quizCardContent.name}
-            img={quizCardContent.image}
-            title={quizCardContent.description}
-            handleNavigate={handleNavigate}
-            isModalOpen={isModalOpen}
-            openModal={openModal}
-            closeModal={closeModal}
-          />
-        </Grid>
-      ))}
+      {Array.isArray(quizCardContentList) && quizCardContentList.length > 0 ? (
+        quizCardContentList.map((quizCardContent) => (
+          <Grid item xs={12} sm={6} md={4} lg={3} key={quizCardContent.id}>
+            <CardItem
+              test={quizCardContent}
+              name={quizCardContent.name}
+              img={quizCardContent.image}
+              title={quizCardContent.description}
+              handleNavigate={handleNavigate}
+              isModalOpen={isModalOpen}
+              openModal={openModal}
+              closeModal={closeModal}
+            />
+          </Grid>
+        ))
+      ) : (
+        <p>Тести не знайдені або ще завантажуються...</p>
+      )}
     </Grid>
   );
 }

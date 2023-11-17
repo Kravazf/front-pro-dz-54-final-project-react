@@ -3,9 +3,9 @@ import { modulName } from './constans';
 
 const filterAction = createAction(`${modulName}/filterAction`, (payload) => ({ payload }));
 
+const toggleFavoriteAction = createAction(`${modulName}/toggleFavorite`, (testId) => ({ payload: testId }));
+
 export default {
   filterAction,
+  toggleFavoriteAction,
 };
-
-// export const TESTS_FILTER = 'TESTS_FILTER';
-// export const filterAction = (payload) => ({ type: TESTS_FILTER, payload });
