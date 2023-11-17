@@ -25,8 +25,7 @@ const FavoriteQuiz = () => {
             test={test}
             name={test.name}
             img={test.image}
-            title={test.title}
-            description={test.description}
+            title={test.description}
             handleNavigate={handleNavigate}
           />
         ))
