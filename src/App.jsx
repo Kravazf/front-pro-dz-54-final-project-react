@@ -17,7 +17,7 @@ function App() {
             <Route path='/' element={<QuizTestRoutes />} />
             <Route path='/MinistryOfSmartPlay/*' element={<QuizTestRoutes />} />
             <Route path='/MinistryOfSmartPlay/QuizTest/:id' element={<QuizPage />} />
-            <Route path='/results' element={<Results />} /> {/* Додайте маршрут для результатів */}
+            <Route path='/results' element={<Results />} />
           </Route>
           <Route path='*' element={<NotFound />} />
         </Routes>

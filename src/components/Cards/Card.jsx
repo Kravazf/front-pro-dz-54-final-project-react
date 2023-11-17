@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { CardContent, Typography } from '@mui/material';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
+import StarBorderPurple500SharpIcon from '@mui/icons-material/StarBorderPurple500Sharp';
 import ModalWindow from '../Modal/ModalWindow';
 import {
   Buttons,
@@ -37,6 +38,10 @@ export default function CardItem({
     setShowModal(false);
   };
 
+  const updateFavorite = () => {
+    dispatch(thunks.toggleFavorite(test.id));
+  };
+
   return (
     <>
       <StyledCard>
@@ -68,16 +73,27 @@ export default function CardItem({
           <Buttons size='small' onClick={handleShowModal}>
             Show More
           </Buttons>
+          <StarBorderPurple500SharpIcon
+            onClick={(updateFavorite)}
+            style={{
+              position: 'absolute',
+              top: '210px',
+              left: '5px',
+              cursor: 'pointer',
+              color: test.Favorite ? 'yellow' : 'green',
+            }}
+          />
           {showDeleteButton && (
           <DeleteForeverIcon
-          size='small'
-          onClick={handleDelete}
-          style={{
-            position: 'absolute',
-            top: '210px',
-            right: '5px',
-            color: 'red',
-          }}
+            size='small'
+            onClick={handleDelete}
+            style={{
+              position: 'absolute',
+              top: '210px',
+              right: '5px',
+              color: 'red',
+              cursor: 'pointer',
+            }}
           >
           </DeleteForeverIcon>
           )}

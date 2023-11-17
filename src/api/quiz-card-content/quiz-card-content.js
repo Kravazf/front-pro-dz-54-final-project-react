@@ -16,6 +16,11 @@ const quizCardContent = {
     .catch((err) => {
       throw new Error(err);
     }),
+  update: (id, updatedData) => axios.put(`/quiz-card-content/${id}`, updatedData)
+    .then(({ data }) => data)
+    .catch((err) => {
+      throw new Error(err);
+    }),
 };
 
 export { quizCardContent };

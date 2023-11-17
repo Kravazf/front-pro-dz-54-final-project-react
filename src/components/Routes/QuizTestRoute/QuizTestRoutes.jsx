@@ -4,6 +4,7 @@ import { QuizTests } from '../../../pages/QuizTests';
 import NotFound from '../../NotFound/NotFound';
 import QuizPage from '../../../pages/QuizPage/QuizPage';
 import CreateQuizPage from '../../../pages/CreateQuizPage/CreateQuizPage';
+import { FavoriteQuiz } from '../../../pages/FavoriteQuiz';
 
 export default function QuizTestRoutes() {
   return (
@@ -11,6 +12,7 @@ export default function QuizTestRoutes() {
       <Route path='/*' element={<NotFound />} />
       <Route path='/' element={<QuizTests />} />
       <Route path='/create' element={<CreateQuizPage />} />
+      <Route path='/favorite' element={<FavoriteQuiz />} />
       <Route path='/QuizTest/:QuizTest' element={<QuizPage />} />
     </Routes>
   );

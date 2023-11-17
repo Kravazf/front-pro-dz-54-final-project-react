@@ -31,6 +31,13 @@ export const testsReduser = createSlice({
       // eslint-disable-next-line no-param-reassign
       state.tests = state.tests.filter((test) => test.id !== testId);
     });
+    builder.addCase(actions.toggleFavoriteAction, (state, action) => {
+      const testId = action.payload;
+      const updatedTests = state.tests.map((test) => (
+        test.id === testId ? { ...test, Favorite: !test.Favorite } : test));
+      // eslint-disable-next-line no-param-reassign
+      state.tests = updatedTests;
+    });
   },
 });
 
