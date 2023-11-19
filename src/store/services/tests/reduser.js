@@ -12,7 +12,12 @@ const initialState = {
 export const testsReduser = createSlice({
   name: modulName,
   initialState,
-  reducers: {},
+  reducers: {
+    updateFavoriteTestsState: (state, action) => {
+      // eslint-disable-next-line no-param-reassign
+      state.tests = action.payload;
+    },
+  },
   extraReducers: (builder) => {
     builder.addCase(actions.filterAction, (state, { payload }) => {
       // eslint-disable-next-line no-param-reassign

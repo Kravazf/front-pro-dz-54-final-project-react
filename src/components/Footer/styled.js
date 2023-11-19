@@ -3,7 +3,6 @@ import styled from 'styled-components';
 export const FooterWrapp = styled('div')(() => ({
   display: 'flex',
   justifyContent: 'space-around',
-  height: '100%',
   backgroundColor: '#252839',
   alignItems: 'center',
 

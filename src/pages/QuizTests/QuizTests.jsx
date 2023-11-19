@@ -7,9 +7,10 @@ import React, {
 } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { Grid } from '@mui/material';
+import { Grid, Typography } from '@mui/material';
 import CardItem from '../../components/Cards/Card';
 import thunks from '../../store/services/tests/thunks';
+import { CenteredItem } from './styled';
 
 export default function QuizTests() {
   const { tests, filteredTests, filter } = useSelector((state) => state.testsReduser);
@@ -74,7 +75,9 @@ export default function QuizTests() {
           </Grid>
         ))
       ) : (
-        <p>Тести не знайдені або ще завантажуються...</p>
+        <CenteredItem item xs={12}>
+          <Typography variant="h5">Quiz not found</Typography>
+        </CenteredItem>
       )}
     </Grid>
   );
