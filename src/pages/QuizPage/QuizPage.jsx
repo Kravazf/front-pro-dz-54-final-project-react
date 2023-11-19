@@ -157,6 +157,9 @@ export default function QuizPage() {
               variant="contained"
               color="primary"
               onClick={handleNextQuestion}
+                style={{
+                  background: 'rgb(4, 170, 109)',
+                }}
             >
               {currentQuestion < (quizData?.question?.length || 0) - 1 ? 'Next' : 'Finish'}
             </Button>

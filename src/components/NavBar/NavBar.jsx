@@ -1,7 +1,6 @@
 /* eslint-disable no-console */
 import { useDispatch, useSelector } from 'react-redux';
-import TextField from '@mui/material/TextField';
-import { SearchBar } from './styled';
+import { SearchBar, StyledTextField } from './styled';
 import actions from '../../store/services/tests/actions';
 
 function NavBar() {
@@ -15,7 +14,7 @@ function NavBar() {
 
   return (
     <SearchBar>
-      <TextField
+      <StyledTextField
         placeholder='Filter tests'
         label="Search"
         variant="outlined"

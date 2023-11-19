@@ -1,4 +1,3 @@
-// import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import { combineReducers } from 'redux';
 import { configureStore } from '@reduxjs/toolkit';
 import { testsReduser } from './services/tests';
@@ -8,7 +7,7 @@ const rootReducer = combineReducers({
 });
 
 const store = configureStore({
-  reducer: rootReducer, // Виправлено помилку в конфігурації об'єкта
+  reducer: rootReducer,
 });
 
 export default store;

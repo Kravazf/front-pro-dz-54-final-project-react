@@ -33,20 +33,25 @@ const updateTest = createAsyncThunk('tests/updateTest', async ({ id, updatedData
   }
 });
 
-const toggleFavorite = createAsyncThunk(`${modulName}/toggleFavorite`, async (testId, { getState, dispatch }) => {
-  const { tests } = getState().testsReduser;
-  const testToUpdate = tests.find((test) => test.id === testId);
+const toggleFavorite = createAsyncThunk(
+  `${modulName}/toggleFavorite`,
+  async (testId, { getState, dispatch }) => {
+    const { tests } = getState().testsReduser;
+    const testToUpdate = tests.find((test) => test.id === testId);
 
-  if (testToUpdate) {
-    const updatedTest = { ...testToUpdate, Favorite: !testToUpdate.Favorite };
-    const response = await quizCardContent.update(testId, updatedTest);
+    if (testToUpdate) {
+      const updatedTest = { ...testToUpdate, Favorite: !testToUpdate.Favorite };
+      const response = await quizCardContent.update(testId, updatedTest);
 
-    if (response) {
-      // Оновлюємо стан Redux
-      dispatch(actions.toggleFavoriteAction(testId));
+      if (response) {
+        dispatch(actions.toggleFavoriteAction(testId));
+        // Оновлюємо localStorage після зміни стану
+        const updatedTests = getState().testsReduser.tests;
+        localStorage.setItem('favoriteTests', JSON.stringify(updatedTests));
+      }
     }
-  }
-});
+  },
+);
 
 export default {
   fetchTests,

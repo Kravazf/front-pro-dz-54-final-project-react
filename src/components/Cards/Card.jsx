@@ -1,9 +1,13 @@
 /* eslint-disable no-alert */
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { CardContent, Typography } from '@mui/material';
-import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
-import StarBorderPurple500SharpIcon from '@mui/icons-material/StarBorderPurple500Sharp';
+import {
+  CardContent,
+  Tooltip,
+  Typography,
+} from '@mui/material';
+import StarIcon from '@mui/icons-material/Star';
+import DeleteIcon from '@mui/icons-material/Delete';
 import ModalWindow from '../Modal/ModalWindow';
 import {
   Buttons,
@@ -73,7 +77,7 @@ export default function CardItem({
           <Buttons size='small' onClick={handleShowModal}>
             Show More
           </Buttons>
-          <StarBorderPurple500SharpIcon
+          <StarIcon
             onClick={(updateFavorite)}
             style={{
               position: 'absolute',
@@ -84,18 +88,20 @@ export default function CardItem({
             }}
           />
           {showDeleteButton && (
-          <DeleteForeverIcon
-            size='small'
-            onClick={handleDelete}
-            style={{
-              position: 'absolute',
-              top: '210px',
-              right: '5px',
-              color: 'red',
-              cursor: 'pointer',
-            }}
-          >
-          </DeleteForeverIcon>
+          <Tooltip title="Delete">
+            <DeleteIcon
+              size='small'
+              onClick={handleDelete}
+              style={{
+                position: 'absolute',
+                top: '210px',
+                right: '5px',
+                fontSize: '25px',
+                color: 'lightskyblue',
+                cursor: 'pointer',
+              }}
+            />
+          </Tooltip>
           )}
         </CardAction>
       </StyledCard>
