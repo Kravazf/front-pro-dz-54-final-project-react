@@ -10,7 +10,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Grid, Typography } from '@mui/material';
 import CardItem from '../../components/Cards/Card';
 import thunks from '../../store/services/tests/thunks';
-import { CenteredItem } from './styled';
+import { CenteredItem, ScrollableContainer } from './styled';
 
 export default function QuizTests() {
   const { tests, filteredTests, filter } = useSelector((state) => state.testsReduser);
@@ -58,6 +58,7 @@ export default function QuizTests() {
   };
 
   return (
+    <ScrollableContainer>
     <Grid container spacing={2}>
       {Array.isArray(quizCardContentList) && quizCardContentList.length > 0 ? (
         quizCardContentList.map((quizCardContent) => (
@@ -80,5 +81,6 @@ export default function QuizTests() {
         </CenteredItem>
       )}
     </Grid>
+    </ScrollableContainer>
   );
 }

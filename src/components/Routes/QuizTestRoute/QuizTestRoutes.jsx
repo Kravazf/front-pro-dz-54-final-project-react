@@ -10,7 +10,7 @@ export default function QuizTestRoutes() {
   return (
     <Routes>
       <Route path='/*' element={<NotFound />} />
-      <Route path='/' element={<QuizTests />} />
+      <Route index element={<QuizTests />} />
       <Route path='/create' element={<CreateQuizPage />} />
       <Route path='/favorite' element={<FavoriteQuiz />} />
       <Route path='/QuizTest/:QuizTest' element={<QuizPage />} />

@@ -1,4 +1,15 @@
+import { Toolbar } from '@mui/material';
 import styled from 'styled-components';
+
+export const StyledToolbar = styled(Toolbar)(() => ({
+  alignItems: 'flex-start',
+  paddingTop: '10px',
+  paddingBottom: '70px',
+  backgroundColor: 'rgb(37, 40, 57)',
+  '@media all': {
+    minHeight: 128,
+  },
+}));
 
 export const ResponsiveTypography = styled('div')(() => ({
   flexGrow: 1,

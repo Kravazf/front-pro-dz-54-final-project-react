@@ -25,4 +25,23 @@ export const testRules = {
       message: 'Please enter a valid URL for an image',
     },
   },
+  login: {
+    required: { value: true, message: ruleText.required },
+    minLength: { value: 3, message: ruleText.minLength(3) },
+    maxLength: { value: 10, message: ruleText.maxLength(10) },
+  },
+  email: {
+    required: { value: true, message: ruleText.required },
+    pattern: {
+      value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/i,
+      message: 'Please enter a valid email address',
+    },
+  },
+  password: {
+    required: { value: true, message: ruleText.required },
+    pattern: {
+      value: /^(?=.*[A-Z])(?=.*[0-9]).{6,}$/,
+      message: 'Password must be at least 6 characters long, include a number and an uppercase letter',
+    },
+  },
 };

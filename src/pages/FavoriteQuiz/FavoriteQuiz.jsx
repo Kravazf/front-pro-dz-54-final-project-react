@@ -1,10 +1,11 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { Grid, Typography } from '@mui/material';
+import { Grid } from '@mui/material';
 import CardItem from '../../components/Cards/Card';
 import { updateFavoriteTestsState } from '../../store/services/tests/actions';
 import { CenteredItem } from '../QuizTests/styled';
+import { FavoriteGrid, FavoriteTypography } from './styled';
 
 const FavoriteQuiz = () => {
   const navigate = useNavigate();
@@ -26,9 +27,8 @@ const FavoriteQuiz = () => {
   };
 
   return (
-    <Grid container spacing={2}
+    <FavoriteGrid container spacing={2}
       style={{
-        minHeight: '45vh',
         alignItems: 'center',
         justifyContent: 'center',
       }}
@@ -47,10 +47,12 @@ const FavoriteQuiz = () => {
         ))
       ) : (
         <CenteredItem item xs={12}>
-          <Typography variant="h5">No selected Quiz</Typography>
+          <FavoriteTypography variant="h5">
+            No selected Quiz
+          </FavoriteTypography>
         </CenteredItem>
       )}
-    </Grid>
+    </FavoriteGrid>
   );
 };
 

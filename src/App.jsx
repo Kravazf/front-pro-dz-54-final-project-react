@@ -7,6 +7,8 @@ import QuizPage from './pages/QuizPage/QuizPage';
 import NotFound from './components/NotFound/NotFound';
 import Results from './pages/Results/Results';
 import store from './store';
+import LoginForm from './pages/LoginForm/LoginForm';
+import RegisterForm from './pages/RegisterForm/RegisterForm';
 
 function App() {
   return (
@@ -14,10 +16,12 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path='/' element={<Template />}>
-            <Route path='/' element={<QuizTestRoutes />} />
+            <Route index element={<QuizTestRoutes />} />
             <Route path='/MinistryOfSmartPlay/*' element={<QuizTestRoutes />} />
             <Route path='/MinistryOfSmartPlay/QuizTest/:id' element={<QuizPage />} />
             <Route path='/results' element={<Results />} />
+            <Route path='/login' element={<LoginForm />} />
+            <Route path='/register' element={<RegisterForm />} />
           </Route>
           <Route path='*' element={<NotFound />} />
         </Routes>

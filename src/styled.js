@@ -1,7 +1,6 @@
 import { Grid, Typography, styled } from '@mui/material';
 
 export const MainWrapp = styled(Grid)(() => ({
-  height: '100vh',
   width: '100vw',
 }));
 
@@ -23,7 +22,6 @@ export const Item = styled('div')(() => ({
   padding: 0,
   textAlign: 'center',
   overflow: 'auto',
-  height: '100%',
 }));
 
 export const HeaderGrid = styled(Grid)(() => ({
@@ -44,6 +42,7 @@ export const SideBarGrid = styled(Grid)(() => ({
 export const MainGrid = styled(Grid)(() => ({
   padding: '15px 30px 15px 15px ',
   border: '1px solid rgba(4, 170, 109, 0.2)',
+  minHeight: '50vh',
 }));
 
 export const FooterGrid = styled(Grid)(() => ({
