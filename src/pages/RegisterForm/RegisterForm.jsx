@@ -1,13 +1,12 @@
-/* eslint-disable promise/always-return */
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import { Typography } from '@mui/material';
 import { ButtonCreateQuiz } from '../CreateQuizPage/styled';
 import InputText from '../../components/Forms/InputText';
 import { testRules } from '../../constans';
-import { LoginPageFormWrap, StyledRegisterLink } from './styled';
+import { LoginPageFormWrap } from './styled';
 
-const LoginForm = () => {
+const RegisterForm = () => {
   const navigate = useNavigate();
   const { control, handleSubmit } = useForm();
 
@@ -36,13 +35,10 @@ const LoginForm = () => {
       />
       <ButtonCreateQuiz
          onClick={handleSubmit(onSubmit)}>
-        <p>Login</p>
+        <p>Register</p>
       </ButtonCreateQuiz>
-      <StyledRegisterLink to="/register">
-        Register
-      </StyledRegisterLink>
     </LoginPageFormWrap>
   );
 };
 
-export default LoginForm;
+export default RegisterForm;

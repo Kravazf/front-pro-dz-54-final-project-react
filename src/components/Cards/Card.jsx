@@ -84,7 +84,7 @@ export default function CardItem({
               top: '210px',
               left: '5px',
               cursor: 'pointer',
-              color: test.Favorite ? 'yellow' : 'green',
+              color: test.Favorite ? 'red' : 'green',
             }}
           />
           {showDeleteButton && (
