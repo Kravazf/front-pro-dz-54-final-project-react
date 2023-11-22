@@ -71,10 +71,10 @@ export default function CardItem({
           </Typography>
         </CardContent>
         <CardAction>
-          <Buttons size='small' onClick={() => handleNavigate(name)}>
+          <Buttons onClick={() => handleNavigate(name)}>
             Start quiz
           </Buttons>
-          <Buttons size='small' onClick={handleShowModal}>
+          <Buttons onClick={handleShowModal}>
             Show More
           </Buttons>
           <StarIcon

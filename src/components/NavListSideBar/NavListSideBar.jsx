@@ -2,6 +2,7 @@ import * as React from 'react';
 import { Link } from 'react-router-dom';
 import { NavList, NavListWrapp } from './styled';
 import NavBar from '../NavBar/NavBar';
+// import MagnetButton from '../UI/AnimateLogo/MagnetButton/MagnetButton';
 
 export default function ListDividers() {
   return (
@@ -32,6 +33,7 @@ export default function ListDividers() {
               &nbsp;Favorite&nbsp;
             </Link>
           </li>
+          {/* <MagnetButton /> */}
         </ul>
       </NavList>
     </NavListWrapp>

@@ -11,7 +11,7 @@ const RegisterForm = () => {
   const { control, handleSubmit } = useForm();
 
   const onSubmit = () => {
-    navigate('/MinistryOfSmartPlay');
+    navigate('/login');
   };
 
   return (

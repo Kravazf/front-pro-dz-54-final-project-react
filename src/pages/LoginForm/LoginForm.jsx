@@ -18,7 +18,7 @@ const LoginForm = () => {
   return (
     <LoginPageFormWrap>
       <Typography variant="h3">
-        Welcom sing in
+        Welcom
       </Typography>
       <InputText
         fullWidth
