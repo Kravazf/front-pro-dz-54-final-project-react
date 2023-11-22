@@ -4,8 +4,8 @@ import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
-import { Button } from '@mui/material';
-import { ResponsiveTypography, StyledToolbar } from './styled';
+import { LoginButton, StyledToolbar } from './styled';
+import AnimateLogo from '../UI/AnimateLogo/AnimateLogo';
 
 export default function ProminentAppBar() {
   return (
@@ -31,18 +31,12 @@ export default function ProminentAppBar() {
               alignItems: 'flex-end',
             }}
           >
-            <ResponsiveTypography
-              variant="h2"
-              noWrap
-              component="div"
-            >
-              Ministry of Smart Play
-            </ResponsiveTypography>
+            <AnimateLogo />
           </Link>
           <Link
             to="/login"
           >
-            <Button color="inherit">Login</Button>
+            <LoginButton color="inherit">Login</LoginButton>
           </Link>
         </StyledToolbar>
       </AppBar>

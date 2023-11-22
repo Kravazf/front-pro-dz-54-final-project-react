@@ -1,4 +1,4 @@
-import { Toolbar } from '@mui/material';
+import { Button, Toolbar } from '@mui/material';
 import styled from 'styled-components';
 
 export const StyledToolbar = styled(Toolbar)(() => ({
@@ -25,5 +25,12 @@ export const ResponsiveTypography = styled('div')(() => ({
   },
   '@media (min-width:900px)': {
     fontSize: '3.5rem',
+  },
+}));
+
+export const LoginButton = styled(Button)(() => ({
+  '&:hover': {
+    color: '#00dc82',
+    filter: 'drop-shadow(0 0 25px #00dc82)',
   },
 }));
