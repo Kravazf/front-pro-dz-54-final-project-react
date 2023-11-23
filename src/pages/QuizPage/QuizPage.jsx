@@ -4,7 +4,6 @@ import { useNavigate, useParams } from 'react-router-dom';
 import {
   Container,
   Typography,
-  Button,
   Card,
   CardContent,
   Accordion,
@@ -15,6 +14,7 @@ import {
 import { quizCardJs } from '../../api/js/js';
 import { quizCardTests } from '../../api/tests/tests';
 import { HeaderContainer, QuizImage } from './styled';
+import GlowButton from '../../components/UI/GlowButton/GlowButton';
 
 export default function QuizPage() {
   const navigate = useNavigate();
@@ -153,16 +153,10 @@ export default function QuizPage() {
                 </Accordion>
               </CardContent>
             </Card>
-            <Button
-              variant="contained"
-              color="primary"
-              onClick={handleNextQuestion}
-                style={{
-                  background: 'rgb(4, 170, 109)',
-                }}
+            <GlowButton onClick={handleNextQuestion}
             >
               {currentQuestion < (quizData?.question?.length || 0) - 1 ? 'Next' : 'Finish'}
-            </Button>
+            </GlowButton>
           </>
         ) : (
           <p>Питання не знайдено або вікторина завершена.</p>

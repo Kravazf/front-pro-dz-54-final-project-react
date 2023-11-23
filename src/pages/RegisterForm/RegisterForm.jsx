@@ -1,10 +1,10 @@
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import { Typography } from '@mui/material';
-import { ButtonCreateQuiz } from '../CreateQuizPage/styled';
 import InputText from '../../components/Forms/InputText';
 import { testRules } from '../../constans';
 import { LoginPageFormWrap } from './styled';
+import MagnetButton from '../../components/UI/MagnetButton/MagnetButton';
 
 const RegisterForm = () => {
   const navigate = useNavigate();
@@ -33,10 +33,10 @@ const RegisterForm = () => {
         rules={testRules.password}
         label='Password'
       />
-      <ButtonCreateQuiz
+      <MagnetButton
          onClick={handleSubmit(onSubmit)}>
-        <p>Register</p>
-      </ButtonCreateQuiz>
+        REGISTER
+      </MagnetButton>
     </LoginPageFormWrap>
   );
 };
