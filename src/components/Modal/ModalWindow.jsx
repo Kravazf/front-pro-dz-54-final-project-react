@@ -1,4 +1,3 @@
-/* eslint-disable no-alert */
 import React from 'react';
 import Dialog from '@mui/material/Dialog';
 import DialogTitle from '@mui/material/DialogTitle';
@@ -6,11 +5,11 @@ import DialogContent from '@mui/material/DialogContent';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 import {
-  ButtonModal,
   DialogAction,
   StyledBorderModalWindow,
   StyledDialogTitle,
 } from './styled';
+import GlowButton from '../UI/GlowButton/GlowButton';
 
 export default function ModalWindow({
   name,
@@ -44,6 +43,7 @@ export default function ModalWindow({
                 position: 'absolute',
                 right: 8,
                 top: 8,
+                color: 'white',
               }}
             >
               <CloseIcon />
@@ -62,9 +62,9 @@ export default function ModalWindow({
             <p>TIME ESTIMATE: {timeEstimate} MINUTES</p>
           </DialogContent>
           <DialogAction>
-            <ButtonModal onClick={handleStartQuiz}>
-              Start Quiz
-            </ButtonModal>
+            <GlowButton onClick={handleStartQuiz}>
+              START QUIZ
+            </GlowButton>
           </DialogAction>
         </StyledDialogTitle>
       </StyledBorderModalWindow>

@@ -77,7 +77,7 @@ export default function QuizTests() {
         ))
       ) : (
         <CenteredItem item xs={12}>
-          <Typography variant="h5">Quiz not found</Typography>
+          <Typography variant="h5">Quiz not found!</Typography>
         </CenteredItem>
       )}
     </Grid>

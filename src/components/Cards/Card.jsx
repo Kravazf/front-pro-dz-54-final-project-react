@@ -10,12 +10,12 @@ import StarIcon from '@mui/icons-material/Star';
 import DeleteIcon from '@mui/icons-material/Delete';
 import ModalWindow from '../Modal/ModalWindow';
 import {
-  Buttons,
   CardAction,
   StyledCard,
   StyledCardMedia,
 } from './styled';
 import thunks from '../../store/services/tests/thunks';
+import MagnetButton from '../UI/MagnetButton/MagnetButton';
 
 export default function CardItem({
   test,
@@ -71,12 +71,12 @@ export default function CardItem({
           </Typography>
         </CardContent>
         <CardAction>
-          <Buttons onClick={() => handleNavigate(name)}>
-            Start quiz
-          </Buttons>
-          <Buttons onClick={handleShowModal}>
-            Show More
-          </Buttons>
+          <MagnetButton onClick={() => handleNavigate(name)}>
+            START
+          </MagnetButton>
+          <MagnetButton onClick={handleShowModal}>
+            SHOW
+          </MagnetButton>
           <StarIcon
             onClick={(updateFavorite)}
             style={{
@@ -84,7 +84,7 @@ export default function CardItem({
               top: '210px',
               left: '5px',
               cursor: 'pointer',
-              color: test.Favorite ? 'red' : 'green',
+              color: test.Favorite ? 'rgb(0, 220, 130)' : 'rgb(37, 40, 57)',
             }}
           />
           {showDeleteButton && (
@@ -97,7 +97,7 @@ export default function CardItem({
                 top: '210px',
                 right: '5px',
                 fontSize: '25px',
-                color: 'lightskyblue',
+                color: 'red',
                 cursor: 'pointer',
               }}
             />

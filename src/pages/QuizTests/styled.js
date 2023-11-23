@@ -5,8 +5,7 @@ export const CenteredItem = styled('div')(() => ({
   alignItems: 'center',
   justifyContent: 'center',
   flexGrow: '1',
-  color: '#00dc82',
-  filter: 'drop-shadow(0 0 25px #00dc82)',
+  marginTop: '30px',
 }));
 
 export const ScrollableContainer = styled('div')(() => ({

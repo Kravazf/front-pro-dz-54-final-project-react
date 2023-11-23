@@ -2,7 +2,7 @@
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import { Typography } from '@mui/material';
-import { ButtonCreateQuiz } from '../CreateQuizPage/styled';
+import MagnetButton from '../../components/UI/MagnetButton/MagnetButton';
 import InputText from '../../components/Forms/InputText';
 import { testRules } from '../../constans';
 import { LoginPageFormWrap, StyledRegisterLink } from './styled';
@@ -34,12 +34,12 @@ const LoginForm = () => {
         rules={testRules.password}
         label='Password'
       />
-      <ButtonCreateQuiz
+      <MagnetButton
          onClick={handleSubmit(onSubmit)}>
-        <p>Login</p>
-      </ButtonCreateQuiz>
+        LOGIN
+      </MagnetButton>
       <StyledRegisterLink to="/register">
-        Register
+        REGISTER
       </StyledRegisterLink>
     </LoginPageFormWrap>
   );

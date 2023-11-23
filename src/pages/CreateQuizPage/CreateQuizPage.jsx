@@ -6,7 +6,8 @@ import InputText from '../../components/Forms/InputText';
 import { testRules } from '../../constans';
 import { quizCardContent } from '../../api/quiz-card-content/quiz-card-content';
 import thunks from '../../store/services/tests/thunks';
-import { ButtonCreateQuiz, FormWrap } from './styled';
+import { FormWrap } from './styled';
+import GlowButton from '../../components/UI/GlowButton/GlowButton';
 
 const CreateQuizPage = () => {
   const dispatch = useDispatch();
@@ -57,9 +58,9 @@ const CreateQuizPage = () => {
         rules={testRules.quizName}
         label='Autor Name'
       />
-      <ButtonCreateQuiz onClick={handleSubmit(onSubmit)}>
-        <p>Create Quiz</p>
-      </ButtonCreateQuiz>
+      <GlowButton onClick={handleSubmit(onSubmit)}>
+        CREATE QUIZ
+      </GlowButton>
     </FormWrap>
   );
 };

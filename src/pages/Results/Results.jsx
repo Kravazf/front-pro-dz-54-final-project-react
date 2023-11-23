@@ -5,9 +5,9 @@ import {
   Typography,
   Fade,
 } from '@mui/material';
-import { ButtonMyProgect } from '../../components/ButtonMyProgect/styled';
 import { ResultWrap } from './styled';
 import ConfettiBackground from '../../components/ConfettiBackground/ConfettiBackground';
+import GlowButton from '../../components/UI/GlowButton/GlowButton';
 
 function formatTime(seconds) {
   const minutes = Math.floor(seconds / 60);
@@ -59,9 +59,9 @@ export default function Results() {
         </Fade>
 
         {/* Кнопка (посилання) для повернення на головну сторінку */}
-        <ButtonMyProgect variant="contained" color="primary">
+        <GlowButton variant="contained" color="primary">
           <Link to="/">Повернутися на головну</Link>
-        </ButtonMyProgect>
+        </GlowButton>
       </ResultWrap>
     </Container>
   );
