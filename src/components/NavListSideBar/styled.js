@@ -5,20 +5,19 @@ export const NavListWrapp = styled('div')(() => ({
   backgroundColor: '#252839',
   alignItems: 'flex-start',
   justifyContent: 'center',
-  height: '100%',
 }));
 
 export const NavList = styled('div')(() => ({
   ul: {
     display: 'flex',
-    alignItems: 'start',
-    flexDirection: 'column',
+    alignItems: 'center',
     padding: '5px',
+    textAlign: 'center',
   },
 
   'ul li': {
     listStyle: 'none',
-    marginTop: '10px',
+    marginRight: '20px',
   },
 
   'ul li a': {
