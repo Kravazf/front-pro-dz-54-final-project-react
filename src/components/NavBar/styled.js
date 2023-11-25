@@ -2,8 +2,7 @@ import styled from 'styled-components';
 import TextField from '@mui/material/TextField';
 
 export const SearchBar = styled('div')`
-  display: flex;
-  margin: 15px 0;
+  display: flex,
 `;
 
 export const StyledTextField = styled(TextField)`
@@ -20,7 +19,6 @@ export const StyledTextField = styled(TextField)`
   }
 
   .MuiOutlinedInput-root {
-    // Інпут
     fieldset {
       border-color: rgba(255, 255, 255, 0.5);
     }
