@@ -2,61 +2,85 @@ import * as React from 'react';
 import { Link } from 'react-router-dom';
 import {
   Divider,
-  Drawer,
   Hidden,
   List,
-  ListItem,
 } from '@mui/material';
-import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import NavBar from '../NavBar/NavBar';
-import { NavList, NavListWrapp, StyledContainer } from './styled';
+import {
+  NavList,
+  NavListWrapp,
+  StyledChevronLeftIcon,
+  StyledContainer,
+  StyledDrawer,
+  StyledListItem,
+} from './styled';
 
 const navigationLinks = [
-  { name: 'Home', href: '/MinistryOfSmartPlay' },
-  { name: 'Add quiz', href: '/MinistryOfSmartPlay/create' },
-  { name: 'Favorite', href: '/MinistryOfSmartPlay/favorite' },
-  { name: <LinkedInIcon fontSize='large' />, href: 'https://www.linkedin.com/in/kravazf/' },
-  { name: <GitHubIcon fontSize='large' />, href: 'https://github.com/Kravazf?tab=repositories' },
-  { name: <InstagramIcon fontSize='large' />, href: 'https://www.linkedin.com/in/kravazf/' },
+  {
+    id: 'Home',
+    name: 'Home',
+    href: '/MinistryOfSmartPlay',
+  },
+  {
+    id: 'Add quiz',
+    name: 'Add quiz',
+    href: '/MinistryOfSmartPlay/create',
+  },
+  {
+    id: 'Favorite',
+    name: 'Favorite',
+    href: '/MinistryOfSmartPlay/favorite',
+  },
+  {
+    id: 'LinkedInIcon',
+    name: <LinkedInIcon fontSize='large' />,
+    href: 'https://www.linkedin.com/in/kravazf/',
+  },
+  {
+    id: 'GitHubIcon',
+    name: <GitHubIcon fontSize='large' />,
+    href: 'https://github.com/Kravazf?tab=repositories',
+  },
+  {
+    id: 'InstagramIcon',
+    name: <InstagramIcon fontSize='large' />,
+    href: 'https://www.instagram.com/maxkrav4enko/',
+  },
 ];
 
-export default function NavListSideBar({ open, onOpen, onClose }) {
+export default function NavListSideBar({ open, onClose }) {
   return (
     <NavListWrapp>
-      <Drawer
+      <StyledDrawer
       anchor='left'
       open={open}
-      onOpen={onOpen}
       onClose={onClose}
       >
-          <ChevronLeftIcon onClick={onClose}/>
+          <StyledChevronLeftIcon onClick={onClose}/>
         <Divider />
         <List>
           {navigationLinks.map((item) => (
-            <ListItem key={item.href}>
+            <StyledListItem key={item.id}>
               <Link
-                key={item.href}
                 to={item.href}
                 variant='button'
-                style={{
-                  color: 'black',
-                }}
+                className='draw-link'
               >
                 {item.name}
               </Link>
-            </ListItem>
+            </StyledListItem>
           ))}
         </List>
-      </Drawer>
+      </StyledDrawer>
       <StyledContainer>
         <Hidden implementation="css" mdDown>
             <NavList>
               {navigationLinks.map((item) => (
                   <Link
-                  key={item.href}
+                    key={item.id}
                     to={item.href}
                     variant='button'
                     className='nav-link'
